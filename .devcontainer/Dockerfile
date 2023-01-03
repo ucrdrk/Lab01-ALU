@@ -1,3 +1,3 @@
 FROM ubuntu:latest
 
-RUN apt update && apt install -y verilog git
+RUN apt update && apt install -y verilog git gtkwave
