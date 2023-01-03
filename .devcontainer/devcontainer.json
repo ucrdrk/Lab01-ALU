@@ -17,9 +17,13 @@
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
+<<<<<<< HEAD
 		"ghcr.io/devcontainers/features/desktop-lite:1": {
 			"password": "HighlandersRule"
 		}
+=======
+		"ghcr.io/devcontainers/features/desktop-lite:1": {}
+>>>>>>> d0d09be (Added supprt for a lightweight Desktop and added ports to forward)
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
