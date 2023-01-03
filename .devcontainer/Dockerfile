@@ -1,2 +1,3 @@
+FROM ubuntu:latest
 
-COPY *.v /cs161l/lab01/
+RUN apt update && apt install -y verilog
