@@ -1,3 +1,2 @@
-FROM ubuntu:latest
 
-RUN apt update && apt install -y verilog git gtkwave
+COPY *.v /cs161l/lab01/
