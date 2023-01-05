@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Lab 1 - Arithmetic and Logic Unit (ALU)
  ## Introduction
 
@@ -70,6 +69,3 @@ functionality
 - All Verilog file(s) used in this lab (implementation and test benches).
 
 **If your file does not synthesize or simulate properly, you will receive a 0 on the lab.**
-=======
-# lab01
->>>>>>> 5c57d8b (Initial commit)
