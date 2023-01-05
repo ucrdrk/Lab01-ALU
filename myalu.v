@@ -34,9 +34,9 @@ module myalu # ( parameter NUMBITS = 16 ) (
 always @(A, B, opcode) begin
     case (opcode)
         3'b000 : {carryout,result} = A + B;
-        3'b001 : {carryout,result} = $signed(A) + $signed(B);       
+        3'b001 : result = $signed(A) + $signed(B);       
         3'b010 : {carryout,result} = A - B;
-        3'b011 : {carryout,result} = $signed(A) - $signed(B);
+        3'b011 : result = $signed(A) - $signed(B);
     endcase
 
     overflow = (opcode == 3'b001 || opcode === 3'b011) && 
