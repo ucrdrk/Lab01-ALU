@@ -1,0 +1,32 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Thu Jan  5 22:52:46 2023
+[*]
+[dumpfile] "/workspaces/Lab01-ALU/lab01.vcd"
+[dumpfile_mtime] "Tue Jan  3 22:17:08 2023"
+[dumpfile_size] 1036
+[savefile] "/workspaces/Lab01-ALU/lab01.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-16.328909 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] myalu_tb.
+[sst_width] 214
+[signals_width] 118
+[sst_expanded] 1
+[sst_vpaned_height] 151
+@28
+myalu_tb.uut.clk
+myalu_tb.uut.reset
+myalu_tb.uut.opcode[2:0]
+@22
+myalu_tb.uut.A[7:0]
+myalu_tb.uut.B[7:0]
+myalu_tb.uut.result[7:0]
+@28
+myalu_tb.uut.carryout
+myalu_tb.uut.overflow
+@29
+myalu_tb.uut.zero
+[pattern_trace] 1
+[pattern_trace] 0
