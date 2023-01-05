@@ -40,7 +40,7 @@ always @(A, B, opcode) begin
         3'b011 : result = $signed(A) - $signed(B);
         3'b100 : result = A & B;
         3'b101 : result = A | B;
-        3'b110 : result = A ^~ B;
+        3'b110 : result = A ^ B;
         3'b111 : result = A >> 1;
     endcase
 
