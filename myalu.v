@@ -32,6 +32,7 @@ module myalu # ( parameter NUMBITS = 16 ) (
 // Insert your solution below
 // ------------------------------ 
 always @(A, B, opcode) begin
+    carryout = 0;
     case (opcode)
         3'b000 : {carryout,result} = A + B;
         3'b001 : result = $signed(A) + $signed(B);       
