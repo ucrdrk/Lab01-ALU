@@ -1,7 +1,7 @@
 //=========================================================================
 // Name & Email must be EXACTLY as in Gradescope roster!
-// Name: 
-// Email: 
+// Name: Allan Knight
+// Email: aknig007@ucr.edu
 // 
 // Assignment name: 
 // Lab section: 
@@ -103,6 +103,19 @@ module myalu_tb;
         
 		// Add more tests here
 
+        totalTests = totalTests + 1;
+		$write("\tTest Case 1.2: Unsigned Add ...");
+		A = 8'h01;
+        B = 8'h00;
+		expected_result = 8'h01; 
+		#100;
+		if (expected_result !== result || zero !== 1'b0 || carryout !== 1'b0) begin
+            $write("failed\n");
+            failedTests = failedTests + 1;
+        end else begin
+            $write("passed\n");
+        end
+        
         // ---------------------------------------------
         // Testing unsigned subs 
         // --------------------------------------------- 

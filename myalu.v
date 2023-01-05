@@ -1,9 +1,9 @@
 //=========================================================================
 // Name & Email must be EXACTLY as in Gradescope roster!
-// Name: 
-// Email: 
+// Name: Allan Knight
+// Email: aknig007@ucr.edu
 // 
-// Assignment name: 
+// Assignment name: Lab01 - ALU
 // Lab section: 
 // TA: 
 // 
@@ -31,5 +31,16 @@ module myalu # ( parameter NUMBITS = 16 ) (
 // ------------------------------
 // Insert your solution below
 // ------------------------------ 
+always @(A, B, opcode) begin
+    case (opcode)
+        3'b000 : {carryout,result} = A + B;
+        3'b001 : {carryout,result} = $signed(A) + $signed(B);       
+        3'b010 : {carryout,result} = A - B;
+        3'b011 : {carryout,result} = $signed(A) - $signed(B);
+    endcase
+
+    overflow = (opcode == 3'b001 || opcode === 3'b011) && ($signed(A) >= 0 && $signed(B) >= 0 && $signed(result) < 0) || ($signed(A) < 0 && $signed(B) < 0 && $signed(result) >= 0);
+    zero = result === 0;
+end
 
 endmodule
