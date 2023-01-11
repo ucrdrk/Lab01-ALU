@@ -2,7 +2,6 @@
  ## Introduction
 
 Welcome to cs161L. This lab will be an introduction to microprocessors and the Verilog
-<<<<<<< HEAD
 language. You will also be getting familiar with the development environment. For the first few labs we sill use an open source tool
 called Icaraus Verilog for sytnthesizing and simulating hardware, and GTKwave to view wave forms. These open source tools are available 
 for Windows, Mac OS X (even for M1 macs), and Linux. You can also use these tools in a web browser (this means you can even usea chromebook
@@ -14,16 +13,11 @@ In later labs we will use the Xilinx design environment. You can findout more ab
 To begin learning about the Verilog Hardware Definition Language (HDL), I highly recommend these [tutorials](https://nandland.com/learn-verilog/) for learning Verilog in general. You may also use these additional Verilog examples [​here](http://www.asic-world.com/verilog/veritut.html)​ as a guide.
 
 The goal of this lab is to implement a simple Arithmetic and Logic Unit (ALU) in Verilog.
-=======
-language. You will also be getting familiar with the Xilinx design environment. The goal of this lab is to implement a simple Arithmetic and Logic Unit (ALU) in Verilog.
-First, follow this [​Xilinx ISE Tutorial](https://docs.google.com/document/d/12RJBZ5fCQQC-67LlHlZTaUMVzfGAa97LAlWozz2Lt80/edit?usp=sharing)​. However, I highly recommend these [tutorials](https://nandland.com/learn-verilog/) for learning Verilog in genera. You may also use these additional Verilog examples [​here](http://www.asic-world.com/verilog/veritut.html)​ as a guide.
->>>>>>> b0c410e (Initial commit)
 
 ALUs are hardware circuits that perform the arithmetic computations within a processor. They
 support multiple operations like addition, subtraction, multiplication, division, square roots, etc. The hardware logic to perform these operations can vary widely based on the approach used (Carry-Lookahead vs Ripple-Carry adder) or the data types supported (Integer, Float, Double). An ALU could even supply multiple versions of the same operation. They are not limited to only arithmetic operations. They can support bitwise operations, like AND OR and NOT, as well. Input data and control bits are sent to the ALU. The control bits specify an operation (OPCODE), and the ALU redirects the inputs to the corresponding functional circuit. When the computation completes the result is output along with extra data about the operation (overflow, underflow, carryouts, etc.)
 
 ## Prelab
-<<<<<<< HEAD
 
 Normally, the prelab steps will be due before beginning of the lab session. However, since this lab is our first, we'll make it due at the same time as the lab. This means you should start working on the prelab for lab 2, which should already be available.
 
@@ -69,22 +63,15 @@ Gradescope and will be given a zero grade. This is easily fixable if you forget,
 credit. Finally, click on "Create repository from template", and you're ready to go.
 
 Next, you will write the test-bench ([myalu_tb.v](./myalu_tb.v)) for the ALU you will be designing. The test-bench should
-=======
-Write the test-bench (myalu_tb.v) for the ALU you will be designing. The test-bench should
->>>>>>> b0c410e (Initial commit)
 include tests for the boundary conditions and edge cases (as well as typical cases). Describe
 the test cases in comments.
 
 ## Deliverables
 For this lab you are expected to build an ALU that supports 8 arithmetic operations using the
-<<<<<<< HEAD
 template provided (myalu.v) in the zip file. The ALU should be designed in such a way that the user can specify the operation's width (​N​) **​without**​ modifying the source code (use parameters). In addition to the ALU you are also expected to build a test-bench that sufficiently verifies its correctness using the template provided (myalu_tb.v). And finally, you'll write a lab report that outlines the tests you ran, and shows that you ran GTKwave to view the waveform from running the test-bench. 
 
 
 ### ALU Specification
-=======
-template provided (myalu.v) in the zip file. The ALU should be designed in such a way that the user can specify the operation's width (​N​) **​without**​ modifying the source code (use parameters). In addition to the ALU you are also expected to build a test-bench that sufficiently verifies its correctness using the template provided (myalu_tb.v).
->>>>>>> b0c410e (Initial commit)
 
 - The module name ​**must**​ be named "`​myalu`​"
 - The module ​**must**​ use a parameter, called "​`NUMBITS`​", specifying the bit width
@@ -115,22 +102,14 @@ template provided (myalu.v) in the zip file. The ALU should be designed in such 
 The `​zero`​ port should be '​1​' when the ​`result`​ port is all zeros.
 The specification for the overflow and the carry out signals is as follows.
 
-<<<<<<< HEAD
 #### Overflow
 
-=======
-### Overflow
->>>>>>> b0c410e (Initial commit)
 | |A|B|Result|
 |-|-|-|------|
 |signed add|>= 0<br /> < 0|>= 0<br /> < 0|< 0 ( Overflow )<br /> >= 0 ( Overflow )|
 |signed sub|>= 0<br /> < 0|< 0<br /> >= 0|< 0 ( Overflow )<br /> >= 0 ( Overflow )|
 
-<<<<<<< HEAD
 #### Carryout
-=======
-### Carryout
->>>>>>> b0c410e (Initial commit)
 
 |            |                              |
 |------------|------------------------------|
@@ -139,7 +118,6 @@ The specification for the overflow and the carry out signals is as follows.
 
 ‘0’ all other times
 
-<<<<<<< HEAD
 ### Writing the Test-Bench
 
 First, start with the test-bench code in myalu_tb.v. One test case is already written for you. It's on lines 82 through 102. You can use this
@@ -189,13 +167,6 @@ Make sure to add this file to your repository and the commit and push the reposi
 
 Each student **​must**​ turn in their repository from GitHub to Gradescope. The contents of which should be:
 - A REPORT.md file with your name and email address, and the content described above
-=======
-## Submission:
-
-Each student **​must**​ turn in one zip file to Gradescope. The contents of which should be:
-- A README file with your name and email address, and any incomplete or incorrect
-functionality
->>>>>>> b0c410e (Initial commit)
 - All Verilog file(s) used in this lab (implementation and test benches).
 
 **If your file does not synthesize or simulate properly, you will receive a 0 on the lab.**
