@@ -44,9 +44,12 @@ always @(A, B, opcode) begin
         3'b111 : result = A >> 1;
     endcase
 
-    overflow = (opcode == 3'b001 || opcode === 3'b011) && 
+    overflow = ((opcode == 3'b001) && 
                (($signed(A) >= 0 && $signed(B) >= 0 && $signed(result) <  0) || 
-               ($signed(A) < 0  && $signed(B) < 0  && $signed(result) >= 0));
+               ($signed(A) < 0  && $signed(B) < 0  && $signed(result) >= 0))) ||
+               ((opcode === 3'b011) &&
+               (($signed(A) >= 0 && $signed(B) < 0 && $signed(result) <  0) || 
+               ($signed(A) < 0  && $signed(B) >= 0  && $signed(result) >= 0))) ;
     zero = result === 0;
 end
 
