@@ -68,7 +68,10 @@ the test cases in comments.
 
 ## Deliverables
 For this lab you are expected to build an ALU that supports 8 arithmetic operations using the
-template provided (myalu.v) in the zip file. The ALU should be designed in such a way that the user can specify the operation's width (​N​) **​without**​ modifying the source code (use parameters). In addition to the ALU you are also expected to build a test-bench that sufficiently verifies its correctness using the template provided (myalu_tb.v).
+template provided (myalu.v) in the zip file. The ALU should be designed in such a way that the user can specify the operation's width (​N​) **​without**​ modifying the source code (use parameters). In addition to the ALU you are also expected to build a test-bench that sufficiently verifies its correctness using the template provided (myalu_tb.v). And finally, you'll write a lab report that outlines the tests you ran, and shows that you ran GTKwave to view the waveform from running the test-bench. 
+
+
+### ALU Specification
 
 - The module name ​**must**​ be named "`​myalu`​"
 - The module ​**must**​ use a parameter, called "​`NUMBITS`​", specifying the bit width
@@ -99,13 +102,14 @@ template provided (myalu.v) in the zip file. The ALU should be designed in such 
 The `​zero`​ port should be '​1​' when the ​`result`​ port is all zeros.
 The specification for the overflow and the carry out signals is as follows.
 
-### Overflow
+#### Overflow
+
 | |A|B|Result|
 |-|-|-|------|
 |signed add|>= 0<br /> < 0|>= 0<br /> < 0|< 0 ( Overflow )<br /> >= 0 ( Overflow )|
 |signed sub|>= 0<br /> < 0|< 0<br /> >= 0|< 0 ( Overflow )<br /> >= 0 ( Overflow )|
 
-### Carryout
+#### Carryout
 
 |            |                              |
 |------------|------------------------------|
@@ -114,11 +118,55 @@ The specification for the overflow and the carry out signals is as follows.
 
 ‘0’ all other times
 
+### Writing the Test-Bench
+
+First, start with the test-bench code in myalu_tb.v. One test case is already written for you. It's on lines 82 through 102. You can use this
+code with only slight modifications, by copying and pasting it for each test case and changin the input values name opcode, A, B, and 
+expecte_result. These values will be specific to each test case. For example, the code given tests the 8-bit addition (opcode=3'b000) of the 
+signed integers -1 (8'hFF) and 1 (8'h01). The expected result is then 0.  The code on lines 96 through 101, then test to see if the expected
+result is coming out the outpus of the myalu module. 
+
+You'll repeat these steps to test all the operation and make sure the outputs are correct for the result, overfloa and carryout as specified
+in the previous section. 
+
+Make enough test cases to make sure all the outputs are correc for all operations and all possible outcomes within the specifications above.
+
+### Producing the Waveform
+
+Once you've synthesized the code for the test-bench and the ALU module, you can run the test-bench simulation script to make sure all the tests pass.
+The code on lines 39 through 43 create a dumpfile that dumps all the values of the signals for each wire, register, module, etc. in the test-bench.
+The waveforms produced in this file can be viewed in GTKwave. For this lab the dumpfile is named lab01.vcd.
+
+After producing the dumpfile, run GTKwave and go to File -> Open New Tab. Navigate to the file lab01.vcd and double click it. You should see something
+like the following: 
+
+![default view of lab01.vcd dumpfile](./assets/gtkwave_dumpfile_no_save_file.png)
+
+While this view is interesting, there is no waveform for you to view. You can click on the + sign next to myalu_tb to see all the values that can be viewed
+in the waveform. However, each time you close the file you must select all the signals you want to see again. To avoid this tedious situation, you can load
+the file lab01.gtkw, which has a view of all the important signals for this lab. Go to File -> Read Save File and navigate to and open the file lab01.gtkw.
+Now you should see something like this:
+
+![view of lab01.vcd dumpfile with signals](./assets/gtkwave_dumpfile_with_save_file.png)
+
+Finally, you're going to drop a name marker and change its name to your name. In GTKwave, click anywhere in the time line of the wavform. You should then
+see a vertical red line. Next, select Markers -> Drop Name Marker. There should now be a letter A above the marker line you created on the time line. Now
+select Markers -> Show Change Marker Data. For row A, type your name in the right hand box next to the time stamp for your marker. You should then see your
+name in the time line just above the marker you created. Take a screen capture of this window to turn in as part of your lab report to prove that you ran
+GTKwave.
+
+### The Lab Report
+
+Now create a file name REPORT.md and use GitHub markdown to write your lab report. This lab report will be short and contains only two sections. The first
+section is a description of each test case you added to the test-bench. The second section just contains the screen shot you took of the waveform file from
+your test-bench that contains a marker with you name. 
+
+Make sure to add this file to your repository and the commit and push the repository to GitHub. You'll submit your lab to Gradescrope.
+
 ## Submission:
 
-Each student **​must**​ turn in one zip file to Gradescope. The contents of which should be:
-- A README file with your name and email address, and any incomplete or incorrect
-functionality
+Each student **​must**​ turn in their repository from GitHub to Gradescope. The contents of which should be:
+- A REPORT.md file with your name and email address, and the content described above
 - All Verilog file(s) used in this lab (implementation and test benches).
 
 **If your file does not synthesize or simulate properly, you will receive a 0 on the lab.**
